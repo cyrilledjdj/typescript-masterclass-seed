@@ -19,19 +19,28 @@
 // bindFunction('ABC', 'DEF', 'GHI');
 // bindFunction('CEF', 'DDEFEF', 'WED');
 
-class MyClass {
-    myMethod() {
-        const foo = 123;
-        console.log('1', this, foo)
-        setTimeout(() => {
-            console.log('2', this, foo);
-        });
-        setTimeout(function () {
-            console.log('3', this, foo);
-        });
-    }
+// class MyClass {
+//     myMethod() {
+//         const foo = 123;
+//         console.log('1', this, foo)
+//         setTimeout(() => {
+//             console.log('2', this, foo);
+//         });
+//         setTimeout(function () {
+//             console.log('3', this, foo);
+//         });
+//     }
+// }
+
+// const myInstance = new MyClass();
+
+// myInstance.myMethod();
+
+const ele = document.querySelector('.click')
+
+function handleClick(this: HTMLAnchorElement, event: Event) {
+    event.preventDefault();
+    console.log(this.href);
 }
 
-const myInstance = new MyClass();
-
-myInstance.myMethod();
+ele.addEventListener('click', handleClick, false);
