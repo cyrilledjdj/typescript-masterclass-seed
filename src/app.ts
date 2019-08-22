@@ -1,8 +1,3 @@
-function myFunction() {
-    console.log(this)
-}
-
-myFunction();
 
 //Object literal
 
@@ -12,15 +7,14 @@ const myObj = {
     }
 }
 
-myObj.myMethod();
-
-new myFunction();
-
-//Classes
-
-class MyClass {
-    myMethod() {
-        console.log('Class:::', this)
-    }
+function myFunction(...text: string[]) {
+    console.log(this, ...text)
 }
-new MyClass().myMethod();
+
+myFunction.call('myObj')
+myFunction.call(myObj, 'ABC', 'DEF')
+myFunction.apply(myObj, ['ABC', 'DEF'])
+
+const bindFunction = myFunction.bind(myObj);
+bindFunction('ABC', 'DEF', 'GHI');
+bindFunction('CEF', 'DDEFEF', 'WED');
