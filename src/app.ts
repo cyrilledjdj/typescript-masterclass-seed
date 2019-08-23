@@ -98,25 +98,41 @@
 
 // const newPerson = freeze(person);
 
+// interface Person { name: string, age: number }
+
+// interface PartialPerson {
+//     name?: string;
+//     age?: number;
+// }
+
+// type MyPartial<T> = {
+//     [P in keyof T]?: T[P]
+// }
+
+// function updatePerson(person: Person, prop: Partial<Person>) {
+//     return { ...person, ...prop }
+// }
+
+// const person: Person = {
+//     name: 'Todd',
+//     age: 27
+// };
+
+// console.log(updatePerson(person, { name: 'James' }))
+
 interface Person { name: string, age: number }
 
-interface PartialPerson {
-    name?: string;
-    age?: number;
-}
+type MyRequired<T> = {
+    readonly [P in keyof T]-?: T[P];
+};
 
-type MyPartial<T> = {
-    [P in keyof T]?: T[P]
-}
-
-function updatePerson(person: Person, prop: Partial<Person>) {
-    return { ...person, ...prop }
+function printAge(person: Required<Person>) {
+    return `${person.name} is ${person.age} years old.`
 }
 
 const person: Person = {
     name: 'Todd',
-    age: 27
+    age: 2
 };
 
-console.log(updatePerson(person, { name: 'James' }))
-
+console.log(printAge(person));
