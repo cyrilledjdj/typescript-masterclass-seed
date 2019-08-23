@@ -52,6 +52,10 @@ const person = {
 
 
 type Person = typeof person;
+
+type PersonKeys = keyof Person;
+type PersonTypes = Person[PersonKeys];
+
 interface Person2 extends Person {
 
 }
