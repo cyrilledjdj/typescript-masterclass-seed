@@ -120,19 +120,31 @@
 
 // console.log(updatePerson(person, { name: 'James' }))
 
-interface Person { name: string, age: number }
+// interface Person { name: string, age: number }
 
-type MyRequired<T> = {
-    readonly [P in keyof T]-?: T[P];
-};
+// type MyRequired<T> = {
+//     readonly [P in keyof T]-?: T[P];
+// };
 
-function printAge(person: Required<Person>) {
-    return `${person.name} is ${person.age} years old.`
+// function printAge(person: Required<Person>) {
+//     return `${person.name} is ${person.age} years old.`
+// }
+
+// const person: Person = {
+//     name: 'Todd',
+//     age: 2
+// };
+
+// console.log(printAge(person));
+
+
+interface Person { name: string, age: number, address: {} }
+
+type MyPick<T, K extends keyof T> = {
+    [P in K]: T[P]
 }
 
-const person: Person = {
+const person: Pick<Person, 'name' | 'age'> = {
     name: 'Todd',
     age: 2
 };
-
-console.log(printAge(person));
