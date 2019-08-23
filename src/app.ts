@@ -138,13 +138,32 @@
 // console.log(printAge(person));
 
 
-interface Person { name: string, age: number, address: {} }
+// interface Person { name: string, age: number, address: {} }
 
-type MyPick<T, K extends keyof T> = {
-    [P in K]: T[P]
+// type MyPick<T, K extends keyof T> = {
+//     [P in K]: T[P]
+// }
+
+// const person: Pick<Person, 'name' | 'age'> = {
+//     name: 'Todd',
+//     age: 2
+// };
+
+let dictionary: { [key: string]: TrackStates } = {};
+interface TrackStates {
+    current: string;
+    next: string
 }
 
-const person: Pick<Person, 'name' | 'age'> = {
-    name: 'Todd',
-    age: 2
-};
+const item: Record<keyof TrackStates, string> = {
+    current: 'js02js95',
+    next: '8nlksjsk'
+}
+
+dictionary[0] = item;
+dictionary['something fancy'] = {
+    current: 'js02js95',
+    next: '8nlksjsk'
+} as Record<keyof TrackStates, string>;
+
+console.log(dictionary);
