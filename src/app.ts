@@ -36,11 +36,36 @@
 
 // myInstance.myMethod();
 
-const ele = document.querySelector('.click')
+// const ele = document.querySelector('.click')
 
-function handleClick(this: HTMLAnchorElement, event: Event) {
-    event.preventDefault();
-    console.log(this.href);
+// function handleClick(this: HTMLAnchorElement, event: Event) {
+//     event.preventDefault();
+//     console.log(this.href);
+// }
+
+// ele.addEventListener('click', handleClick, false);
+
+const person = {
+    name: 'Todd',
+    age: 27
 }
 
-ele.addEventListener('click', handleClick, false);
+
+type Person = typeof person;
+interface Person2 extends Person {
+
+}
+
+const anotherPerson: Person = {
+    age: 30,
+    name: 'John'
+}
+
+const anotherPerson2: Person2 = {
+    age: 30,
+    name: 'John'
+}
+
+console.log(person, anotherPerson)
+
+typeof [];
