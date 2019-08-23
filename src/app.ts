@@ -1,6 +1,5 @@
 
-//Object literal
-
+// Object literal
 // const myObj = {
 //     myMethod() {
 //         console.log(this)
@@ -45,38 +44,56 @@
 
 // ele.addEventListener('click', handleClick, false);
 
-const person = {
-    name: 'Todd',
-    age: 27
+// const person = {
+//     name: 'Todd',
+//     age: 27
+// }
+
+
+// type Person = typeof person;
+
+// type PersonKeys = keyof Person;
+// type PersonTypes = Person[PersonKeys];
+
+// function getProperty<T, K extends keyof T>(obj: T, key: K) {
+//     return obj[key];
+// }
+
+// const personName = getProperty(person, 'name')
+// console.log(personName)
+
+// interface Person2 extends Person {
+
+// }
+
+// const anotherPerson: Person = {
+//     age: 30,
+//     name: 'John'
+// }
+
+// const anotherPerson2: Person2 = {
+//     age: 30,
+//     name: 'John'
+// }
+
+// console.log(person, anotherPerson)
+
+// typeof [];
+
+interface Person { name: string, age: number }
+
+interface ReadOnlyPerson { readonly name: string, readonly age: number }
+
+const person: Person = {
+    name: '',
+    age: 0
+};
+
+type MyReadonly<T> = {
+    readonly [P in keyof T]: T[P]
+}
+function freeze<T>(obj: T): MyReadonly<T> {
+    return Object.freeze(obj);
 }
 
-
-type Person = typeof person;
-
-type PersonKeys = keyof Person;
-type PersonTypes = Person[PersonKeys];
-
-function getProperty<T, K extends keyof T>(obj: T, key: K) {
-    return obj[key];
-}
-
-const personName = getProperty(person, 'name')
-console.log(personName)
-
-interface Person2 extends Person {
-
-}
-
-const anotherPerson: Person = {
-    age: 30,
-    name: 'John'
-}
-
-const anotherPerson2: Person2 = {
-    age: 30,
-    name: 'John'
-}
-
-console.log(person, anotherPerson)
-
-typeof [];
+const newPerson = freeze(person);
