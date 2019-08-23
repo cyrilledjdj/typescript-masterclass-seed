@@ -80,20 +80,43 @@
 
 // typeof [];
 
+// interface Person { name: string, age: number }
+
+// interface ReadOnlyPerson { readonly name: string, readonly age: number }
+
+// const person: Person = {
+//     name: '',
+//     age: 0
+// };
+
+// type MyReadonly<T> = {
+//     readonly [P in keyof T]: T[P]
+// }
+// function freeze<T>(obj: T): MyReadonly<T> {
+//     return Object.freeze(obj);
+// }
+
+// const newPerson = freeze(person);
+
 interface Person { name: string, age: number }
 
-interface ReadOnlyPerson { readonly name: string, readonly age: number }
+interface PartialPerson {
+    name?: string;
+    age?: number;
+}
+
+type MyPartial<T> = {
+    [P in keyof T]?: T[P]
+}
+
+function updatePerson(person: Person, prop: Partial<Person>) {
+    return { ...person, ...prop }
+}
 
 const person: Person = {
-    name: '',
-    age: 0
+    name: 'Todd',
+    age: 27
 };
 
-type MyReadonly<T> = {
-    readonly [P in keyof T]: T[P]
-}
-function freeze<T>(obj: T): MyReadonly<T> {
-    return Object.freeze(obj);
-}
+console.log(updatePerson(person, { name: 'James' }))
 
-const newPerson = freeze(person);
