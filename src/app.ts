@@ -459,7 +459,12 @@
 //     name: string = 'Todd'
 // }
 
-export class Person {
-    constructor(private name: string) { }
-    getName() { return this.getName; }
-}
+// export class Person {
+//     constructor(private name: string) { }
+//     getName() { return this.getName; }
+// }
+
+
+Array.isArray([]);
+
+Array.from(document.querySelectorAll('*'));
