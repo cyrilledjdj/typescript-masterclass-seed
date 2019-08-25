@@ -468,3 +468,8 @@
 Array.isArray([]);
 
 Array.from(document.querySelectorAll('*'));
+
+class Hello {
+    id: number;
+    constructor() { }
+}
