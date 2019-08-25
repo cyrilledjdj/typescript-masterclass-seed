@@ -19,6 +19,11 @@
     "inlineSourceMap": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "strict": true
+    "strict": true,
+    // "pretty": true
+    // "listEmittedFiles": true
+    // "listFiles": true,
+    // "diagnostics": true
+    // "traceResolution": true
   }
 }

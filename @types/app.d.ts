@@ -1,4 +1,3 @@
-declare class Hello {
-    id: number;
-    constructor(id: number);
+declare class Person {
+    constructor();
 }

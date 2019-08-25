@@ -465,11 +465,17 @@
 // }
 
 
-Array.isArray([]);
+// Array.isArray([]);
 
-Array.from(document.querySelectorAll('*'));
+// Array.from(document.querySelectorAll('*'));
 
-class Hello {
-    id: number;
+// class Hello {
+//     id: number;
+//     constructor() { }
+// }
+
+class Person {
     constructor() { }
 }
+
+const names: string = 123
