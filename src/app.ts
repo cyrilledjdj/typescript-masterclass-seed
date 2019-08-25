@@ -395,16 +395,36 @@
 // console.log(reverse([1, 2, 3, 4]))
 // console.log(reverse(['bacon', 'pepperoni', 'chili', 'mushrooms']))
 
-enum Sizes {
-    Small,
-    Medium,
-    Large
+// enum Sizes {
+//     Small,
+//     Medium,
+//     Large
+// }
+
+// enum Sizes {
+//     ExtraLarge = 3
+// }
+
+// console.log(Sizes)
+// console.log(Sizes.Small)
+// console.log(Sizes[0])
+
+const enum Sizes {
+    Small = 'small',
+    Medium = 'medium',
+    Large = 'large'
 }
 
-enum Sizes {
-    ExtraLarge = 3
+const enum Sizes {
+    ExtraLarge = 'xlarge'
 }
 
-console.log(Sizes)
-console.log(Sizes.Small)
-console.log(Sizes[0])
+let selected: Sizes = Sizes.Medium;
+
+function updateSize(size: Sizes): void {
+    selected = size;
+}
+
+console.table(selected)
+updateSize(Sizes.ExtraLarge);
+console.table(selected)
