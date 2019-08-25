@@ -149,21 +149,57 @@
 //     age: 2
 // };
 
-let dictionary: { [key: string]: TrackStates } = {};
-interface TrackStates {
-    current: string;
-    next: string
+// let dictionary: { [key: string]: TrackStates } = {};
+// interface TrackStates {
+//     current: string;
+//     next: string
+// }
+
+// const item: Record<keyof TrackStates, string> = {
+//     current: 'js02js95',
+//     next: '8nlksjsk'
+// }
+
+// dictionary[0] = item;
+// dictionary['something fancy'] = {
+//     current: 'js02js95',
+//     next: '8nlksjsk'
+// } as Record<keyof TrackStates, string>;
+
+// console.log(dictionary);
+
+function foo(bar: string | number) {
+    if (typeof bar === 'string') {
+        // string
+        return bar.toUpperCase();
+    }
+    if (typeof bar === 'number') {
+        return bar.toFixed(2);
+    }
 }
 
-const item: Record<keyof TrackStates, string> = {
-    current: 'js02js95',
-    next: '8nlksjsk'
+class Song {
+    constructor(public title: string, public duration: string | number) { }
+
 }
 
-dictionary[0] = item;
-dictionary['something fancy'] = {
-    current: 'js02js95',
-    next: '8nlksjsk'
-} as Record<keyof TrackStates, string>;
+function getSongDuration(item: Song) {
+    const { duration } = item;
+    if (typeof duration === 'string') {
+        return duration;
+    }
+    const minutes = Math.floor(duration / 60000),
+        seconds = Math.ceil((duration / 1000) % 60);
+    return `${minutes < 12 ? '0' + minutes : minutes}:${seconds}`
+}
 
-console.log(dictionary);
+const songDurationFromString = getSongDuration(
+    new Song('Wonderful wonderful', '05:31')
+)
+
+console.log(songDurationFromString);
+
+const songDurationFromStringMs = getSongDuration(
+    new Song('Wonderful wonderful', 330001)
+)
+console.log(songDurationFromStringMs);
