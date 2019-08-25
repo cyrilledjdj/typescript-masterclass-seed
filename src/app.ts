@@ -168,38 +168,63 @@
 
 // console.log(dictionary);
 
-function foo(bar: string | number) {
-    if (typeof bar === 'string') {
-        // string
-        return bar.toUpperCase();
-    }
-    if (typeof bar === 'number') {
-        return bar.toFixed(2);
-    }
+// class Song {
+//     constructor(public title: string, public duration: string | number) { }
+
+// }
+
+// function getSongDuration(item: Song) {
+//     const { duration } = item;
+//     if (typeof duration === 'string') {
+//         return duration;
+//     }
+//     const minutes = Math.floor(duration / 60000),
+//         seconds = Math.ceil((duration / 1000) % 60);
+//     return `${minutes < 12 ? '0' + minutes : minutes}:${seconds}`
+// }
+
+// const songDurationFromString = getSongDuration(
+//     new Song('Wonderful wonderful', '05:31')
+// )
+
+// console.log(songDurationFromString);
+
+// const songDurationFromStringMs = getSongDuration(
+//     new Song('Wonderful wonderful', 330001)
+// )
+// console.log(songDurationFromStringMs);
+
+class Foo {
+    bar() { }
 }
+
+const bar = new Foo();
+
+console.log(bar instanceof Foo)
+console.log(Object.getPrototypeOf(bar) === Foo.prototype)
 
 class Song {
-    constructor(public title: string, public duration: string | number) { }
-
+    constructor(public title: string, public duration: number) { }
 }
 
-function getSongDuration(item: Song) {
-    const { duration } = item;
-    if (typeof duration === 'string') {
-        return duration;
+class Playlist {
+    constructor(public name: string, public songs: Song[]) { }
+}
+
+function getItemName(item: Song | Playlist) {
+    if (item instanceof Song) {
+        return item.title;
     }
-    const minutes = Math.floor(duration / 60000),
-        seconds = Math.ceil((duration / 1000) % 60);
-    return `${minutes < 12 ? '0' + minutes : minutes}:${seconds}`
+    return `${item.name}: ${item.songs}`
 }
 
-const songDurationFromString = getSongDuration(
-    new Song('Wonderful wonderful', '05:31')
+const songName = getItemName(new Song('Wonderful Wonderful', 300000))
+
+console.log('Song name:', songName);
+
+
+const playlistName = getItemName(
+    new Playlist('The Best Songs', [new Song('The man', 300000)])
 )
 
-console.log(songDurationFromString);
-
-const songDurationFromStringMs = getSongDuration(
-    new Song('Wonderful wonderful', 330001)
-)
-console.log(songDurationFromStringMs);
+console.log('Playlist name:', playlistName)
