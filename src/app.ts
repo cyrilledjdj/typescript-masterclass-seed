@@ -456,4 +456,6 @@
 //     bar(age: number) { }
 // }
 
-
+function log(message: string) {
+    console.log('heello')
+}
