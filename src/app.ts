@@ -339,42 +339,58 @@
 // console.log(artistFactory({ name: 'Todd' }));
 // console.log(artistFactory2({ name: 'John' }));
 
-class Pizza {
-    constructor(private name: string, private price: number) { }
-}
+// class Pizza {
+//     constructor(private name: string, private price: number) { }
+// }
 
-class List<T> {
-    private list: Array<T> = [];
+// class List<T> {
+//     private list: Array<T> = [];
 
-    addItem(item: T): void {
-        this.list.push(item);
+//     addItem(item: T): void {
+//         this.list.push(item);
+//     }
+
+//     getList(): T[] {
+//         return this.list;
+//     }
+// }
+
+// const list = new List<Pizza>();
+
+// list.addItem(new Pizza('Pepperoni', 15));
+// list.addItem(new Pizza('Pineapple', 12));
+// // list.addItem({ hello: 'world' })
+
+// console.log(JSON.stringify(list.getList()))
+
+// class Coupon {
+//     constructor(private name: string) { }
+// }
+
+// const anotherList = new List<Coupon>();
+
+// anotherList.addItem(new Coupon('PIZZA25'));
+
+// interface Coupes {
+//     name: string
+// }
+
+// const coupesList = new List<Coupes>();
+
+// coupesList.addItem({ name: 'yup' });
+
+function reverse(str: string): string;
+function reverse<T>(arr: T[]): T[];
+function reverse<T>(stringOrArray: string | T[]): string | T[] {
+    if (typeof stringOrArray === 'string') {
+        return stringOrArray
+            .split('')
+            .reverse()
+            .join('')
     }
-
-    getList(): T[] {
-        return this.list;
-    }
+    return stringOrArray.slice().reverse();
 }
 
-const list = new List<Pizza>();
-
-list.addItem(new Pizza('Pepperoni', 15));
-list.addItem(new Pizza('Pineapple', 12));
-// list.addItem({ hello: 'world' })
-
-console.log(JSON.stringify(list.getList()))
-
-class Coupon {
-    constructor(private name: string) { }
-}
-
-const anotherList = new List<Coupon>();
-
-anotherList.addItem(new Coupon('PIZZA25'));
-
-interface Coupes {
-    name: string
-}
-
-const coupesList = new List<Coupes>();
-
-coupesList.addItem({ name: 'yup' });
+console.log(reverse('Pepperoni'))
+console.log(reverse([1, 2, 3, 4]))
+console.log(reverse(['bacon', 'pepperoni', 'chili', 'mushrooms']))
