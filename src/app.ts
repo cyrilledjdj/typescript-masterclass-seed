@@ -300,21 +300,40 @@
 // checkout(orderCard);
 // checkout(orderPaypal);
 
-interface Item {
+// interface Item {
+//     name: string;
+// }
+// interface Artist extends Item {
+//     songs: number;
+// }
+
+// interface Artist {
+//     getSongs: () => number;
+// }
+
+// const newArtist: Artist = { name: 'ABC', songs: 12, getSongs: () => newArtist.songs }
+
+// type Artist2 = { name: string; } & Item;
+
+// const artist: Artist = { name: '', songs: 12, getSongs() { return this.songs; } }
+
+// console.log(artist, artist.getSongs(), newArtist, newArtist.getSongs())
+
+interface IArtist {
     name: string;
 }
-interface Artist extends Item {
-    songs: number;
+
+class ArtistCreator implements IArtist {
+    constructor(public name: string, public id?: number) { }
 }
 
-interface Artist {
-    getSongs: () => number;
+function artistFactory({ name }: IArtist) {
+    return { id: 101, name };
 }
 
-const newArtist: Artist = { name: 'ABC', songs: 12, getSongs: () => newArtist.songs }
+function artistFactory2({ name }: ArtistCreator) {
+    return new ArtistCreator(name);
+}
 
-type Artist2 = { name: string; } & Item;
-
-const artist: Artist = { name: '', songs: 12, getSongs() { return this.songs; } }
-
-console.log(artist, artist.getSongs(), newArtist, newArtist.getSongs())
+console.log(artistFactory({ name: 'Todd' }));
+console.log(artistFactory2({ name: 'John' }));
