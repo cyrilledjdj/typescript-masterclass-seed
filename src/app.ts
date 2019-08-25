@@ -456,6 +456,6 @@
 //     bar(age: number) { }
 // }
 
-function log(message: string) {
-    console.log('heello')
+class Person {
+    name: string = 'Todd'
 }
