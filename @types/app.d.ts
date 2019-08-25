@@ -1,4 +1,2 @@
-declare class Person {
-    constructor();
+export declare class App {
 }
-declare const names: number;

@@ -474,8 +474,12 @@
 //     constructor() { }
 // }
 
-class Person {
-    constructor() { }
-}
+// class Person {
+//     constructor() { }
+// }
 
-const names: number = 123
+// const names: number = 123
+
+export class App {
+
+}
