@@ -194,49 +194,90 @@
 // )
 // console.log(songDurationFromStringMs);
 
-class Foo {
-    bar() { }
+// class Foo {
+//     bar() { }
+// }
+
+// const bar = new Foo();
+
+// console.log(bar instanceof Foo)
+// console.log(Object.getPrototypeOf(bar) === Foo.prototype)
+
+// const exists = 'localStorage' in window;
+
+// console.log('localStorage', exists);
+
+// console.log('WebAssembly' in window);
+
+// class Song {
+//     kind: 'song';
+//     constructor(public title: string, public duration: number) { }
+// }
+
+// class Playlist {
+//     kind: 'playlist';
+//     constructor(public name: string, public songs: Song[]) { }
+// }
+
+// function isSong(item: any): item is Song {
+//     return 'title' in item;
+// }
+
+// function getItemName(item: Song | Playlist) {
+//     if (item.kind === 'song') {
+//         return item.title;
+//     }
+//     return `${item.name}: ${item.songs}`
+// }
+
+// const songName = getItemName(new Song('Wonderful Wonderful', 300000))
+
+// console.log('Song name:', songName);
+
+
+// const playlistName = getItemName(
+//     new Playlist('The Best Songs', [new Song('The man', 300000)])
+// )
+
+// console.log('Playlist name:', playlistName)
+
+interface Order {
+    id: string
+    amount: number
+    currency: string
 }
 
-const bar = new Foo();
-
-console.log(bar instanceof Foo)
-console.log(Object.getPrototypeOf(bar) === Foo.prototype)
-
-const exists = 'localStorage' in window;
-
-console.log('localStorage', exists);
-
-console.log('WebAssembly' in window);
-
-class Song {
-    kind: 'song';
-    constructor(public title: string, public duration: number) { }
+interface Stripe {
+    card: string;
+    cvc: string;
 }
 
-class Playlist {
-    kind: 'playlist';
-    constructor(public name: string, public songs: Song[]) { }
+interface Paypal {
+    email: string;
 }
 
-function isSong(item: any): item is Song {
-    return 'title' in item;
+type CheckoutCard = Order & Stripe
+type CheckoutPayPal = Order & Paypal;
+
+const order: Order = {
+    id: 'xj28s',
+    amount: 100,
+    currency: 'USD'
 }
 
-function getItemName(item: Song | Playlist) {
-    if (item.kind === 'song') {
-        return item.title;
-    }
-    return `${item.name}: ${item.songs}`
+const orderCard: CheckoutCard = {
+    ...order,
+    card: '1000 2000 3000 4000',
+    cvc: '123'
 }
 
-const songName = getItemName(new Song('Wonderful Wonderful', 300000))
+const orderPaypal: CheckoutPayPal = {
+    ...order,
+    email: 'abc@def.gh'
+}
 
-console.log('Song name:', songName);
+const assigned = Object.assign({}, order, orderPaypal)
 
-
-const playlistName = getItemName(
-    new Playlist('The Best Songs', [new Song('The man', 300000)])
-)
-
-console.log('Playlist name:', playlistName)
+console.log(order)
+console.log(orderCard)
+console.log(orderPaypal);
