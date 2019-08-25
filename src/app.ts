@@ -241,61 +241,80 @@
 
 // console.log('Playlist name:', playlistName)
 
-interface Order {
-    id: string
-    amount: number
-    currency: string
+// interface Order {
+//     id: string
+//     amount: number
+//     currency: string
+// }
+
+// interface Stripe {
+//     type: 'stripe';
+//     card: string;
+//     cvc: string;
+// }
+
+// interface Paypal {
+//     type: 'paypal';
+//     email: string;
+// }
+
+// type CheckoutCard = Order & Stripe
+// type CheckoutPayPal = Order & Paypal;
+
+// const order: Order = {
+//     id: 'xj28s',
+//     amount: 100,
+//     currency: 'USD'
+// }
+
+// const orderCard: CheckoutCard = {
+//     ...order,
+//     card: '1000 2000 3000 4000',
+//     cvc: '123',
+//     type: 'stripe'
+// }
+
+// const orderPaypal: CheckoutPayPal = {
+//     ...order,
+//     email: 'abc@def.gh',
+//     type: 'paypal'
+// }
+
+// const assigned = Object.assign({}, order, orderPaypal)
+
+// console.log(order)
+// console.log(orderCard)
+// console.log(orderPaypal);
+
+// type Payload = CheckoutCard | CheckoutPayPal;
+
+// function checkout(payload: Payload) {
+//     if (payload.type === 'stripe') {
+//         console.log(payload.card, payload.cvc);
+//     }
+//     if (payload.type === 'paypal') {
+//         console.log(payload.email)
+//     }
+// }
+
+// checkout(orderCard);
+// checkout(orderPaypal);
+
+interface Item {
+    name: string;
+}
+interface Artist extends Item {
+    songs: number;
 }
 
-interface Stripe {
-    type: 'stripe';
-    card: string;
-    cvc: string;
+interface Artist {
+    getSongs: () => number;
 }
 
-interface Paypal {
-    type: 'paypal';
-    email: string;
-}
+const newArtist: Artist = { name: 'ABC', songs: 12, getSongs: () => newArtist.songs }
 
-type CheckoutCard = Order & Stripe
-type CheckoutPayPal = Order & Paypal;
+type Artist2 = { name: string; } & Item;
 
-const order: Order = {
-    id: 'xj28s',
-    amount: 100,
-    currency: 'USD'
-}
+const artist: Artist = { name: '', songs: 12, getSongs() { return this.songs; } }
 
-const orderCard: CheckoutCard = {
-    ...order,
-    card: '1000 2000 3000 4000',
-    cvc: '123',
-    type: 'stripe'
-}
-
-const orderPaypal: CheckoutPayPal = {
-    ...order,
-    email: 'abc@def.gh',
-    type: 'paypal'
-}
-
-const assigned = Object.assign({}, order, orderPaypal)
-
-console.log(order)
-console.log(orderCard)
-console.log(orderPaypal);
-
-type Payload = CheckoutCard | CheckoutPayPal;
-
-function checkout(payload: Payload) {
-    if (payload.type === 'stripe') {
-        console.log(payload.card, payload.cvc);
-    }
-    if (payload.type === 'paypal') {
-        console.log(payload.email)
-    }
-}
-
-checkout(orderCard);
-checkout(orderPaypal);
+console.log(artist, artist.getSongs(), newArtist, newArtist.getSongs())
