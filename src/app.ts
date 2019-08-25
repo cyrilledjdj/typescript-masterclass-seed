@@ -443,15 +443,15 @@
 // log('Hello!');
 // other();
 
-/**
- * Class to demo doing stuff
- */
-export class Foo {
-    constructor(public name: string) { }
+// /**
+//  * Class to demo doing stuff
+//  */
+// export class Foo {
+//     constructor(public name: string) { }
 
-    /**
-     * bar stuff
-     * @param age number
-     */
-    bar(age: number) { }
-}
+//     /**
+//      * bar stuff
+//      * @param age number
+//      */
+//     bar(age: number) { }
+// }
