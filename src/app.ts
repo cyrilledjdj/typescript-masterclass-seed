@@ -1,5 +1,3 @@
-import * as lodash from 'lodash';
-
 // Object literal
 // const myObj = {
 //     myMethod() {
@@ -430,3 +428,5 @@ import * as lodash from 'lodash';
 // updateSize(Sizes.ExtraLarge);
 // console.table(selected)
 
+import { chunk } from 'lodash';
+console.log(chunk([1, 2, 3, 4, 5], 2));
