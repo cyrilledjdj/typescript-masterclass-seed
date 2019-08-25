@@ -203,20 +203,28 @@ const bar = new Foo();
 console.log(bar instanceof Foo)
 console.log(Object.getPrototypeOf(bar) === Foo.prototype)
 
+const exists = 'localStorage' in window;
+
+console.log('localStorage', exists);
+
+console.log('WebAssembly' in window);
+
 class Song {
+    kind: 'song';
     constructor(public title: string, public duration: number) { }
 }
 
 class Playlist {
+    kind: 'playlist';
     constructor(public name: string, public songs: Song[]) { }
 }
 
 function isSong(item: any): item is Song {
-    return item instanceof Song;
+    return 'title' in item;
 }
 
 function getItemName(item: Song | Playlist) {
-    if (isSong(item)) {
+    if (item.kind === 'song') {
         return item.title;
     }
     return `${item.name}: ${item.songs}`

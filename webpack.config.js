@@ -10,6 +10,7 @@ module.exports = {
   module: {
     rules: [{ test: /\.ts$/, use: 'awesome-typescript-loader' }],
   },
+  devtool: 'source-map',
   devServer: {
     port: 3000,
   },
