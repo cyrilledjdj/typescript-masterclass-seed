@@ -1,4 +1,7 @@
 {
+  "files": ["src/app.ts"],
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.spec.ts"],
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "./@types",
