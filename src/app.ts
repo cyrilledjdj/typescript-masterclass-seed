@@ -428,17 +428,22 @@
 // updateSize(Sizes.ExtraLarge);
 // console.table(selected)
 
-import { chunk, mixin, log, other } from 'lodash';
-console.log(chunk([1, 2, 3, 4, 5], 2));
+// import { chunk, mixin, log, other } from 'lodash';
+// console.log(chunk([1, 2, 3, 4, 5], 2));
 
-mixin({
-    log(item: string) {
-        console.log(':::', item)
-    },
-    other() {
-        console.log('other')
-    }
-})
+// mixin({
+//     log(item: string) {
+//         console.log(':::', item)
+//     },
+//     other() {
+//         console.log('other')
+//     }
+// })
 
-log('Hello!');
-other();
+// log('Hello!');
+// other();
+
+export class Foo {
+    constructor(public name: string) { }
+    bar(age: number) { }
+}

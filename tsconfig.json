@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "./@types",
     "target": "es5",
     "module": "commonjs",
     "lib": ["dom", "es6"],
