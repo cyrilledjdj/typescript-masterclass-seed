@@ -5,6 +5,9 @@
     "lib": ["dom", "es6"],
     "outDir": "dist",
     "noImplicitThis": true,
-    "types" : [ "lodash", "express" ] 
+    "typeRoots": [
+      "src/@types",
+      "node_modules/@types"
+    ]
   }
 }

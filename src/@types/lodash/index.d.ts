@@ -1,3 +1,14 @@
-declare module 'lodash2' {
-    export function chunk(collection: any, size?: number): any[][]
+import 'lodash';
+declare module 'lodash' {
+    interface LoDashStatic {
+        /**
+         * Magic in the gathering
+         */
+        log: (item: string) => string;
+
+        /**
+         * No true champion
+         */
+        other: () => void;
+    }
 }
