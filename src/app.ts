@@ -478,4 +478,4 @@ class Person {
     constructor() { }
 }
 
-const names: string = 123
+const names: number = 123
