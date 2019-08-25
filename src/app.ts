@@ -379,18 +379,32 @@
 
 // coupesList.addItem({ name: 'yup' });
 
-function reverse(str: string): string;
-function reverse<T>(arr: T[]): T[];
-function reverse<T>(stringOrArray: string | T[]): string | T[] {
-    if (typeof stringOrArray === 'string') {
-        return stringOrArray
-            .split('')
-            .reverse()
-            .join('')
-    }
-    return stringOrArray.slice().reverse();
+// function reverse(str: string): string;
+// function reverse<T>(arr: T[]): T[];
+// function reverse<T>(stringOrArray: string | T[]): string | T[] {
+//     if (typeof stringOrArray === 'string') {
+//         return stringOrArray
+//             .split('')
+//             .reverse()
+//             .join('')
+//     }
+//     return stringOrArray.slice().reverse();
+// }
+
+// console.log(reverse('Pepperoni'))
+// console.log(reverse([1, 2, 3, 4]))
+// console.log(reverse(['bacon', 'pepperoni', 'chili', 'mushrooms']))
+
+enum Sizes {
+    Small,
+    Medium,
+    Large
 }
 
-console.log(reverse('Pepperoni'))
-console.log(reverse([1, 2, 3, 4]))
-console.log(reverse(['bacon', 'pepperoni', 'chili', 'mushrooms']))
+enum Sizes {
+    ExtraLarge = 3
+}
+
+console.log(Sizes)
+console.log(Sizes.Small)
+console.log(Sizes[0])
