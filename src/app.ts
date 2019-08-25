@@ -210,12 +210,12 @@
 // console.log('WebAssembly' in window);
 
 // class Song {
-//     kind: 'song';
+//     kind: 'song' = 'song';
 //     constructor(public title: string, public duration: number) { }
 // }
 
 // class Playlist {
-//     kind: 'playlist';
+//     kind: 'playlist' = 'playlist';
 //     constructor(public name: string, public songs: Song[]) { }
 // }
 
@@ -248,11 +248,13 @@ interface Order {
 }
 
 interface Stripe {
+    type: 'stripe';
     card: string;
     cvc: string;
 }
 
 interface Paypal {
+    type: 'paypal';
     email: string;
 }
 
@@ -268,12 +270,14 @@ const order: Order = {
 const orderCard: CheckoutCard = {
     ...order,
     card: '1000 2000 3000 4000',
-    cvc: '123'
+    cvc: '123',
+    type: 'stripe'
 }
 
 const orderPaypal: CheckoutPayPal = {
     ...order,
-    email: 'abc@def.gh'
+    email: 'abc@def.gh',
+    type: 'paypal'
 }
 
 const assigned = Object.assign({}, order, orderPaypal)
@@ -281,3 +285,17 @@ const assigned = Object.assign({}, order, orderPaypal)
 console.log(order)
 console.log(orderCard)
 console.log(orderPaypal);
+
+type Payload = CheckoutCard | CheckoutPayPal;
+
+function checkout(payload: Payload) {
+    if (payload.type === 'stripe') {
+        console.log(payload.card, payload.cvc);
+    }
+    if (payload.type === 'paypal') {
+        console.log(payload.email)
+    }
+}
+
+checkout(orderCard);
+checkout(orderPaypal);
