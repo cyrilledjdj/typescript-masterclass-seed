@@ -1,4 +1,3 @@
-// Object literal
 // const myObj = {
 //     myMethod() {
 //         console.log(this)
@@ -456,6 +455,11 @@
 //     bar(age: number) { }
 // }
 
-class Person {
-    name: string = 'Todd'
+// class Person {
+//     name: string = 'Todd'
+// }
+
+export class Person {
+    constructor(private name: string) { }
+    getName() { return this.getName; }
 }
