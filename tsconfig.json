@@ -4,6 +4,7 @@
     "module": "commonjs",
     "lib": ["dom", "es6"],
     "outDir": "dist",
-    "noImplicitThis": true
+    "noImplicitThis": true,
+    "types" : [ "lodash", "express" ] 
   }
 }

@@ -1,3 +1,4 @@
+import * as lodash from 'lodash';
 
 // Object literal
 // const myObj = {
@@ -409,22 +410,23 @@
 // console.log(Sizes.Small)
 // console.log(Sizes[0])
 
-const enum Sizes {
-    Small = 'small',
-    Medium = 'medium',
-    Large = 'large'
-}
+// const enum Sizes {
+//     Small = 'small',
+//     Medium = 'medium',
+//     Large = 'large'
+// }
 
-const enum Sizes {
-    ExtraLarge = 'xlarge'
-}
+// const enum Sizes {
+//     ExtraLarge = 'xlarge'
+// }
 
-let selected: Sizes = Sizes.Medium;
+// let selected: Sizes = Sizes.Medium;
 
-function updateSize(size: Sizes): void {
-    selected = size;
-}
+// function updateSize(size: Sizes): void {
+//     selected = size;
+// }
 
-console.table(selected)
-updateSize(Sizes.ExtraLarge);
-console.table(selected)
+// console.table(selected)
+// updateSize(Sizes.ExtraLarge);
+// console.table(selected)
+
