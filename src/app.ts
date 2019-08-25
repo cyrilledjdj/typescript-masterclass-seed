@@ -319,21 +319,62 @@
 
 // console.log(artist, artist.getSongs(), newArtist, newArtist.getSongs())
 
-interface IArtist {
-    name: string;
+// interface IArtist {
+//     name: string;
+// }
+
+// class ArtistCreator implements IArtist {
+//     private id?= 12;
+//     constructor(public name: string) { }
+// }
+
+// function artistFactory({ name }: IArtist) {
+//     return { id: 101, name };
+// }
+
+// function artistFactory2({ name }: ArtistCreator) {
+//     return new ArtistCreator(name);
+// }
+
+// console.log(artistFactory({ name: 'Todd' }));
+// console.log(artistFactory2({ name: 'John' }));
+
+class Pizza {
+    constructor(private name: string, private price: number) { }
 }
 
-class ArtistCreator implements IArtist {
-    constructor(public name: string, public id?: number) { }
+class List<T> {
+    private list: Array<T> = [];
+
+    addItem(item: T): void {
+        this.list.push(item);
+    }
+
+    getList(): T[] {
+        return this.list;
+    }
 }
 
-function artistFactory({ name }: IArtist) {
-    return { id: 101, name };
+const list = new List<Pizza>();
+
+list.addItem(new Pizza('Pepperoni', 15));
+list.addItem(new Pizza('Pineapple', 12));
+// list.addItem({ hello: 'world' })
+
+console.log(JSON.stringify(list.getList()))
+
+class Coupon {
+    constructor(private name: string) { }
 }
 
-function artistFactory2({ name }: ArtistCreator) {
-    return new ArtistCreator(name);
+const anotherList = new List<Coupon>();
+
+anotherList.addItem(new Coupon('PIZZA25'));
+
+interface Coupes {
+    name: string
 }
 
-console.log(artistFactory({ name: 'Todd' }));
-console.log(artistFactory2({ name: 'John' }));
+const coupesList = new List<Coupes>();
+
+coupesList.addItem({ name: 'yup' });
